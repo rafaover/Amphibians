@@ -3,5 +3,5 @@
 
     <!--    Placeholders-->
     <string name="place_title">Testing Title</string>
-    <string name="place_description">Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.</string>
+    <string name="place_description">This toad spends most of its life underground due to the arid desert conditions in which it lives. Spadefoot toads earn the name because of their hind legs which are wedged to aid in digging. They are typically grey, green, or brown with dark spots.</string>
 </resources>
