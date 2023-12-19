@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Amphibians</string>
+
+    <!--    Placeholders-->
+    <string name="place_title">Testing Title</string>
+    <string name="place_description">Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.Description in many lines.</string>
 </resources>
