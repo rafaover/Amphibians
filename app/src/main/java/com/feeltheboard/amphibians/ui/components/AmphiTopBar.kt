@@ -11,7 +11,9 @@ import com.feeltheboard.amphibians.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AmphibianTopBar(modifier: Modifier = Modifier) {
+fun AmphibianTopBar(
+    modifier: Modifier = Modifier
+) {
     CenterAlignedTopAppBar(
         title = {
                 Text(
@@ -19,5 +21,6 @@ fun AmphibianTopBar(modifier: Modifier = Modifier) {
                     style = MaterialTheme.typography.headlineSmall
                 )
         },
+        modifier = modifier
     )
 }
