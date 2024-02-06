@@ -27,7 +27,7 @@ class AmphibiansViewModel: ViewModel() {
         try {
             viewModelScope.launch {
                 val listResult = AmphibiansApi.retrofitService.getAmphibiansData()
-                amphibiansUiState = AmphibiansUiState.Success(listResult)
+                amphibiansUiState = AmphibiansUiState.Success("${listResult.size} insertions")
             }
         }
         catch (e: IOException) {
