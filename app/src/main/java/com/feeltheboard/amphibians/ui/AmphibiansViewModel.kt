@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.feeltheboard.amphibians.network.AmphibiansApi
+import com.feeltheboard.amphibians.data.NetworkAmphibiansDataRepository
 import kotlinx.coroutines.launch
 import java.io.IOException
 
@@ -26,7 +26,8 @@ class AmphibiansViewModel: ViewModel() {
     private fun getAmphibiansData() {
         try {
             viewModelScope.launch {
-                val listResult = AmphibiansApi.retrofitService.getAmphibiansData()
+                val amphibiansDataRepository = NetworkAmphibiansDataRepository()
+                val listResult = amphibiansDataRepository.getAmphibiansData()
                 amphibiansUiState = AmphibiansUiState.Success("${listResult.size} insertions")
             }
         }
