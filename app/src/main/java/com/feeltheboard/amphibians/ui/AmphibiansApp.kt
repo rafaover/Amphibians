@@ -19,7 +19,8 @@ fun AmphibiansApp() {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            val amphibiansViewModel: AmphibiansViewModel = viewModel()
+            val amphibiansViewModel: AmphibiansViewModel =
+                viewModel(factory = AmphibiansViewModel.Factory)
             HomeScreen(
                 amphibiansUiState = amphibiansViewModel.amphibiansUiState,
                 contentPadding = it
