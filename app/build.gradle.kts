@@ -63,7 +63,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     // Coil
-    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // Serialization
