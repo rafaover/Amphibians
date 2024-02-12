@@ -1,6 +1,6 @@
 ## AMPHIBIANS
 
-A learning project using a API to access a database of amphibians and display them. The main focus
+A solo project for learning purposes using an API to access a list of amphibians for display. The main focus
 was to structure the project in a clean and maintainable way, using coroutines, MVVM, Retrofit, 
 repository pattern, Dependency Injection and Jetpack Compose.
 
