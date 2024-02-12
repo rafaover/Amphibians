@@ -8,26 +8,31 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.feeltheboard.amphibians.R
+import com.feeltheboard.amphibians.network.Amphibians
 import com.feeltheboard.amphibians.ui.AmphibiansUiState
+import kotlinx.serialization.json.JsonNull.content
 
 @Composable
 fun HomeScreen(
     amphibiansUiState: AmphibiansUiState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = PaddingValues(0.dp)
+    contentPadding: PaddingValues
 ) {
     when(amphibiansUiState) {
         is AmphibiansUiState.Success -> ResultScreen(
-            amphibiansUiState.data,
-            modifier.padding(top = contentPadding.calculateTopPadding())
+            amphibians = amphibiansUiState.data,
+            contentPadding = contentPadding
         )
         is AmphibiansUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
         is AmphibiansUiState.Error -> ErrorScreen(modifier = modifier.fillMaxSize())
@@ -35,12 +40,19 @@ fun HomeScreen(
 }
 
 @Composable
-fun ResultScreen(amphibians: String, modifier: Modifier = Modifier) {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = modifier
-    ) {
-        Text(text = amphibians)
+fun ResultScreen(
+    amphibians: List<Amphibians>,
+    contentPadding: PaddingValues,
+    modifier: Modifier = Modifier
+){
+    LazyColumn(
+        contentPadding = contentPadding,
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+        modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))
+    ){
+        items(amphibians) { amphibian ->
+            MainCard(amphibian)
+        }
     }
 }
 

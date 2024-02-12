@@ -1,6 +1,5 @@
 package com.feeltheboard.amphibians.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -9,22 +8,18 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.feeltheboard.amphibians.R
-import com.feeltheboard.amphibians.ui.theme.AmphibiansTheme
+import com.feeltheboard.amphibians.network.Amphibians
 
 @Composable
 fun MainCard(
-    title: String,
-    description: String
+    amphibiansData: Amphibians    
 ) {
     Card(
         elevation = CardDefaults.cardElevation(
@@ -35,33 +30,25 @@ fun MainCard(
             .background(colorResource(id = R.color.purple_200)),
     ) {
         Text(
-            text = title,
+            text = "{$amphibiansData.name} (${amphibiansData.type})",
             fontWeight = FontWeight.Bold,
             fontSize = 25.sp,
             modifier = Modifier
                 .padding(dimensionResource(R.dimen.text_margin))
-
         )
-        Image(
-            painter = painterResource(id = R.drawable.img),
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth()
-
-        )
+        AmphibianPhoto(amphibiansData)
         Text(
-            text = description,
+            text = amphibiansData.description,
             modifier = Modifier.padding(dimensionResource(R.dimen.text_margin)),
             textAlign = TextAlign.Justify
         )
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MainCardPreview() {
-    AmphibiansTheme {
-        MainCard(title = "Title", description = "Description")
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun MainCardPreview() {
+//    AmphibiansTheme {
+//        MainCard()
+//    }
+//}

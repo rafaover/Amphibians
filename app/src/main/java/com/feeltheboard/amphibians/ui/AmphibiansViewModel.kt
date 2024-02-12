@@ -11,12 +11,12 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.feeltheboard.amphibians.AmphibiansApplication
 import com.feeltheboard.amphibians.data.AmphibiansDataRepository
-import com.feeltheboard.amphibians.data.DefaultAppContainer
+import com.feeltheboard.amphibians.network.Amphibians
 import kotlinx.coroutines.launch
 import java.io.IOException
 
 sealed interface AmphibiansUiState {
-    data class Success(val data: String): AmphibiansUiState
+    data class Success(val data: List<Amphibians>): AmphibiansUiState
     object Loading: AmphibiansUiState
     object Error: AmphibiansUiState
 }
@@ -34,9 +34,8 @@ class AmphibiansViewModel(
     private fun getAmphibiansData() {
         try {
             viewModelScope.launch {
-                val listResult =
-                    DefaultAppContainer().amphibiansRepository.getAmphibiansData()
-                amphibiansUiState = AmphibiansUiState.Success("${listResult.size} insertions")
+                val listResult = amphibiansDataRepository.getAmphibiansData()
+                amphibiansUiState = AmphibiansUiState.Success(listResult)
             }
         }
         catch (e: IOException) {
