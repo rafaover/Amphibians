@@ -24,3 +24,5 @@ This pattern provides a clean separation between data sources and the rest of th
 This helps in managing and providing dependencies throughout the application in a structured manner.
 
 **Serialization:** Kotlin Serialization. Used for parsing JSON data.
+
+**Image Loading:** Coil.
