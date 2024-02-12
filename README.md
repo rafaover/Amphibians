@@ -4,6 +4,8 @@ A solo project for learning purposes using an API to access a list of amphibians
 was to structure the project in a clean and maintainable way, using coroutines, MVVM, Retrofit, 
 repository pattern, Dependency Injection and Jetpack Compose.
 
+<img src="https://github.com/rafaover/Amphibians/assets/59352318/29562576-3a5f-4b9e-846b-236858b7edc7" height="500">
+
 ## TECHNOLOGIES AND DEPENDENCIES
 
 **Language:** Kotlin
